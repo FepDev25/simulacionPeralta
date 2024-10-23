@@ -1,0 +1,55 @@
+<section class="contenedor">
+    <div id="crearcurso" class="formulario">
+        <h2>Agregar un nuevo curso:</h2>
+        <form>
+            <fieldset>
+                <legend>Llena los siguientes campos para agregar una nueva tarea</legend>
+
+                <div class="contenedor-campos">
+
+                    <div class="ingresos-cortos">
+                        <div class="campo">
+                            <label>Nombre de la tarea</label>
+                            <input #nombre placeholder="" class="input-text" type="text">
+                        </div>
+
+                    </div>
+
+                    <div class="campo">
+                        <label>Descripción de la tarea</label>
+                        <textarea #descripcion placeholder="" class="descripcion-textarea input-text"></textarea>
+                    </div>
+
+                    <input (click)="agregarTarea()" class="boton" type="button" value="Agregar">
+                    <p #error class="error"></p> 
+
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+
+
+    <div id="listadoTareas">
+        <h2>Listado de Tareas</h2>
+        <div class="tareas">
+            <div *ngFor="let tarea of tareas" class="tarea">
+                <p><span class="curso-caracteristica">Titulo:</span> {{ tarea.titulo }}</p>
+                
+                <div class="botones">
+                    <button (click)="mostrarDetalles(tarea)" class="boton-general boton-verde">
+                        {{ tarea.mostrarDetalles ? 'Mostrar Menos' : 'Información completa' }}
+                    </button>
+                    <button (click)="elimiarTarea(tarea)" class="boton-general boton-rojo">
+                        Eliminar</button>
+                </div>
+
+                <div *ngIf="tarea.mostrarDetalles">
+                    <p><span class="curso-caracteristica">Estado:</span> {{ tarea.estado ? 'Activo' : 'Inactivo' }}</p>
+                    <p><span class="curso-caracteristica">Descripcion:</span> {{ tarea.descripcion }} días.</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>

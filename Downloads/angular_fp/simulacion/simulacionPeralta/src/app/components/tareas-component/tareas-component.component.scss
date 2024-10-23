@@ -1,0 +1,15 @@
+.tareas{
+    max-width: 120rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .tarea{
+        padding: 10px;
+        border: 1px solid #111111;
+        border-radius: 6px;
+    }
+}
+
+.curso-caracteristica{
+    font-weight: bold;
+}
