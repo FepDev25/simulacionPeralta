@@ -44,7 +44,8 @@ export class OperacionesComponentComponent implements OnInit {
   }
 
   removeOp(operacion : Operacion){
-    const index = this.operaciones.findIndex(t => t.id === operacion.id);
+    const index = this.operaciones.findIndex(o => o.id === operacion.id);
+    console.log(index);
     if (index != -1){
       this.operaciones.splice(index, 1);
       this.servicio.guardarOperaciones();
