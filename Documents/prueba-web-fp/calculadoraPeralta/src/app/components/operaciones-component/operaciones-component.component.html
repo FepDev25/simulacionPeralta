@@ -1,0 +1,51 @@
+<section class="contenedor">
+    <div id="crearcurso" class="formulario">
+        <h2>Agregar una nueva operacion</h2>
+        <form>
+            <fieldset>
+                <legend>Ingresa los dos numueros para generar la soperaciones</legend>
+
+                <div class="contenedor-campos">
+
+                    <div class="ingresos-cortos">
+                        <div class="campo">
+                            <label>Primer numero</label>
+                            <input #primero class="input-text" type="number">
+                        </div>
+
+                    </div>
+
+                    <div class="campo">
+                        <label>Segundo Numero</label>
+                        <input #segundo class="input-text" type="number">
+                    </div>
+
+                    <input (click)="addOperacion()"  class="boton" type="button" value="Agregar">
+                    <p #error class="error"></p> 
+
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+
+
+    <div id="listadoTareas">
+        <h2>Listado de Operaciones</h2>
+        <div class="tareas">
+            <div *ngFor="let operacion of operaciones" class="tarea">
+                <h3>Operacion: </h3>
+
+                <p><span class="curso-caracteristica">Numero 1:</span> {{ operacion.num1 }}</p>
+                <p><span class="curso-caracteristica">Numero 2:</span> {{ operacion.num2 }}</p>
+                <p><span class="curso-caracteristica">Suma:</span> {{ operacion.resultadoSuma }}</p>
+                <p><span class="curso-caracteristica">Resta:</span> {{ operacion.resultadResta }}</p>
+                <p><span class="curso-caracteristica">Multiplicacion:</span> {{ operacion.resultadoMulti }}</p>
+                <p><span class="curso-caracteristica">Division:</span> {{ operacion.resultadoDiv }}</p>
+                
+                <button (click)="removeOp(operacion)" class="boton-general boton-rojo">
+                    Eliminar</button>
+                
+            </div>
+        </div>
+    </div>
